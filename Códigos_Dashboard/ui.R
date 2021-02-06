@@ -1,3 +1,6 @@
+#EQUIPO 22
+#Flor de María Medina García
+#José Andrés Echeveste Vázquez
 
 library(shiny)
 library(shinydashboard)
