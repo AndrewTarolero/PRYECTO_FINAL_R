@@ -1,3 +1,7 @@
+#EQUIPO 22
+#Flor de María Medina García
+#José Andrés Echeveste Vázquez
+
 library(dplyr)
 library(ggplot2)
 library(readr)
