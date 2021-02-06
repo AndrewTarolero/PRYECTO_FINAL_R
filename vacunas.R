@@ -211,7 +211,7 @@ ggplot(mareur, aes(x = vaccines, y = n, fill = n))+
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 
-## Correlación entre vacunados y contagiados de USA (ya que es el país con más datos)
+## Correlación entre vacunados y contagiados de USA (ya que es el país con más datos) para determinar si disminuyen los contagios mientras haya más vacunados
 cvv<- read.csv("https://raw.githubusercontent.com/AndrewTarolero/PRYECTO_FINAL_R/master/cases_vs_vaccined.csv")
 
 #verificando el tipo de datos
@@ -239,6 +239,7 @@ ggplot(cvv, aes(x=people_vaccinated, y=confirmed_cases)) +
 corvc<-lm(people_vaccinated~confirmed_cases) #correlación
 
 summary(corvc) #resumen estadístico de la gráfica de correlación, extraemos R ajusted y p-value
+#encontramos que la correlación es de 0.3 pero nuestro valor de p-value acepta nuestra hipotesis
 
 
 ## series de tiempo de un par de países por cada continente 
@@ -288,7 +289,7 @@ str(ts.asia) #revisar los tipos de datos
 ts.asia<-mutate(ts.asia, date = as.Date(date, "%d/%m/%Y")) #cambiando de char a date
 str(ts.asia) #verificando el cambio
 
-#SERIE DE TIEMPO DE VACUNADOS DIARIOS PARA ENG
+#SERIE DE TIEMPO DE VACUNADOS DIARIOS PARA CHN
 ggplot(ts.asia, aes(x = date, y = daily_vaccinations_CHI)) +
   geom_line() +
   labs(x = "Fecha",
